@@ -1,0 +1,18 @@
+# Changelog
+
+## [1.2] — 2026-07-08
+
+- **Paranoid mode** — enabled by default.
+- Strict `Content-Security-Policy` meta tag locking down script/style/connect sources.
+- Anti-clickjacking guard: page stays hidden unless it's the top-level frame.
+- New, more specific error states (invalid input, missing/incorrect/duplicate keyfiles, tampered-but-decrypted data).
+- `bcEncrypt`/`bcDecrypt` now take a single options object instead of positional args, and return a structured `{ code, data }` result instead of a bare number or byte array.
+- Clipboard copy now falls back to select-and-manual-copy when the Clipboard API isn't available, instead of just failing.
+- Unsupported-browser message now renders via DOM methods instead of `innerHTML`.
+- Footer links point at the new v1.2 release and the project homepage.
+- Minimum ciphertext length checks bumped for the updated container format.
+- Global `picocryptEncrypt`/`picocryptDecrypt` references are deleted after use instead of staying attached to `globalThis`.
+- Swapped raw `innerHTML`
+
+### Internal
+- Restored the original, commented upstream `wasm_exec.js` (Go's WASM glue)
