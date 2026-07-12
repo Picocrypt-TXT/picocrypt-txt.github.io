@@ -995,7 +995,7 @@ const val = textEl.value;
 const doReset = () => {
 setTimeout(() => {
 window.location.reload();
-}, 800);
+}, 999);
 };
 const copyFallback = () => {
 startBtn.style.pointerEvents = "";
@@ -1103,7 +1103,7 @@ statusEl.textContent = kept ? "Decrypted (WARNING: not verified \u2014 data may 
 if (result.comments) decComments.textContent = "Comments: " + result.comments;
 } else {
 outputText = bytesToBase64(outputData);
-statusEl.textContent = "Encrypted.";
+statusEl.textContent = "Done.";
 }
 
 zeroBytes(outputData);
