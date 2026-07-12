@@ -790,7 +790,7 @@ details#advanced[open] > summary::before{
 	<input type="password" id="password" class="disabled" placeholder="Password" autocomplete="new-password">
 	<input type="password" id="cpassword" class="disabled" placeholder="Confirm" autocomplete="new-password">
 	
-	<input type="button" id="start" class="disabled" value="Start" />
+	<input type="submit" id="start" class="disabled" value="Start">
 		<p id="status" class="disabled">Ready.</p>
 	<details id="advanced">
 		<summary>Advanced</summary>
@@ -1060,7 +1060,7 @@ try {
 keyfileBytes = await readKeyfiles(keyfilesDecEl);
 result = bcDecrypt({data: encBytes, password: password, keyfiles: keyfileBytes, forceDecrypt: forceDecryptEl.checked});
 }
-catch(e) { result = {code: -1}; if (e && e.message) { zeroBytes(encBytes); zeroKeyfiles(keyfileBytes); textEl.disabled = false; statusEl.textContent = e.message; statusEl.style.color = "#db2828"; checkInput(); return; } }
+catch(e) { result = {code: -1}; if (e && e.message) { statusEl.textContent = e.message; statusEl.style.color = "#db2828"; checkInput(); return; } }
 zeroBytes(encBytes);
 } else {
 try {
@@ -1071,7 +1071,7 @@ keyfiles: keyfileBytes, keyfileOrdered: keyfileOrderedEl.checked,
 reedSolomon: reedSolomonEl.checked, deniability: deniabilityEl.checked
 });
 }
-catch(e) { result = {code: -1}; if (e && e.message) { zeroBytes(plainBytes); zeroKeyfiles(keyfileBytes); textEl.disabled = false; statusEl.textContent = e.message; statusEl.style.color = "#db2828"; checkInput(); return; } }
+catch(e) { result = {code: -1}; if (e && e.message) { statusEl.textContent = e.message; statusEl.style.color = "#db2828"; checkInput(); return; } }
 zeroBytes(plainBytes);
 }
 zeroKeyfiles(keyfileBytes);
